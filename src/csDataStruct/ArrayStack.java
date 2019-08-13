@@ -33,17 +33,14 @@ public class ArrayStack<E> implements Stack<E> {
 	}
 	
 	//往栈中添加元素
-	public void push(){
-		
-	}
 	@Override
-	public void set(E e){
+	public void push(E e){
 		data.addLast(e);
 	}
 	
 	//从栈中取出元素
 	@Override
-	public E get(){
+	public E pop(){
 		return data.removeLast();
 	}
 	
@@ -53,19 +50,37 @@ public class ArrayStack<E> implements Stack<E> {
 		return data.getLast();
 	}
 	
+	//重构格式化输出
 	@Override
 	public String toString(){
 		StringBuffer res = new StringBuffer();
 		
-		res.append("Stack: [");
+		res.append(String.format("Stack: size=%d, capacity=%d\n", data.getSize(), data.getCapacity()));
+		res.append("[");
 		for(int i=0;i<data.getSize();i++){
 			res.append(data.get(i));
 			if(i != data.getSize()-1){
 				res.append(", ");
 			}
 		}
-		res.append("]");
+		res.append("] top");
 		
 		return res.toString();
+	}
+	
+	public static void main(String[] args) {
+		ArrayStack<Integer> a = new ArrayStack<Integer>(3);
+
+		for(int i=0;i<10;i++){
+			a.push(i);
+			System.out.println(a);
+		}
+		System.out.println(a.pop());
+		System.out.println(a.pop());
+		System.out.println(a.pop());
+		System.out.println(a.pop());
+		System.out.println(a.pop());
+		System.out.println(a.pop());
+		System.out.println(a);
 	}
 }
