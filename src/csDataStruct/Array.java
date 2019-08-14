@@ -1,7 +1,5 @@
 package csDataStruct;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 public class Array<E> {
 	
 	private E[] data;
