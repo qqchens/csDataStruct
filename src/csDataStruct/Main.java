@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		int testCount = 100000;
-		
+		//队列比较
 //		ArrayQueue<Integer> a1 = new ArrayQueue<Integer>();
 //		double time1 = testQueue(a1, testCount);
 //		System.out.println("ArrayQueue 用时" + time1 + "ms。");
@@ -20,13 +20,29 @@ public class Main {
 //		double time3 = testQueue(a3, testCount);
 //		System.out.println("LinkedListQueue 用时" + time3 + "ms。");
 		
-		LinkedListStack<Integer> a4 = new LinkedListStack<Integer>();
-		double time4 = testStack(a4, testCount);
-		System.out.println("LinkedListQueue 用时" + time4 + "ms。");
+		//栈比较
+//		LinkedListStack<Integer> a4 = new LinkedListStack<Integer>();
+//		double time4 = testStack(a4, testCount);
+//		System.out.println("LinkedListQueue 用时" + time4 + "ms。");
+//		
+//		ArrayStack<Integer> a5 = new ArrayStack<Integer>();
+//		double time5 = testStack(a5, testCount);
+//		System.out.println("LinkedListQueue 用时" + time5 + "ms。");
 		
-		ArrayStack<Integer> a5 = new ArrayStack<Integer>();
-		double time5 = testStack(a5, testCount);
-		System.out.println("LinkedListQueue 用时" + time5 + "ms。");
+		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+		System.out.println(bst.getSize());
+		for(int i=1;i<10;i=i+2){
+			bst.loop_add(i);
+//			bst.add(i);
+		}
+		for(int i=1;i<10;i++){
+			bst.loop_add(i);
+//			bst.add(i);
+		}
+		System.out.println(bst.DLR());
+		System.out.println(bst.LDR());
+		System.out.println(bst.LRD());
+		
 	}
 
 	public static double testQueue(Queue<Integer> q, int count){
