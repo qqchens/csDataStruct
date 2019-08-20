@@ -1,5 +1,7 @@
 package csDataStruct;
 
+import java.util.Stack;
+
 public class BinarySearchTree<E extends Comparable<E>> {
 
 	private class Node{
@@ -51,8 +53,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	}
 
 	//二叉树中插入元素（非递归实现）
-	public void loop_add(E e){
+	public void addNotRec(E e){
 		Node node = root;
+		size ++;
 		while(node != null){
 			if(e.compareTo(node.e) < 0){
 				if(node.left == null){
@@ -91,7 +94,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	}
 
 	//检查是否包含某元素（非递归实现）
-	public boolean loop_contains(E e){
+	public boolean containsNotRec(E e){
 		if(isEmpty()){
 			return false;
 		}
@@ -166,5 +169,75 @@ public class BinarySearchTree<E extends Comparable<E>> {
 			res.append(node.e.toString());
 			return res.toString();
 		}
+	}
+	
+	//前序遍历（非递归实现）
+	public String DLRNotRec(){
+		if(isEmpty()){
+			throw new IllegalArgumentException("can not traversing an empty tree.");
+		}
+		Stack<Node> s = new Stack<>();
+		Node node = root;
+		
+		s.push(node);
+		StringBuffer res = new StringBuffer();
+		while(!s.isEmpty()){
+			node = s.pop();
+			res.append(node.e);
+			if(node.right != null){
+				s.push(node.right);
+			}
+			if(node.left != null){
+				s.push(node.left);
+			}
+		}
+		
+		return res.toString();
+	}
+	
+	//后序遍历（非递归实现）
+	public String LRDNotRec(){
+		if(isEmpty()){
+			throw new IllegalArgumentException("can not traversing an empty tree.");
+		}
+		Stack<Node> s = new Stack<>();
+		Node node = root;
+		s.push(node);
+		StringBuffer res = new StringBuffer();
+		
+		while(!s.isEmpty()){
+			node = s.pop();
+			res.insert(0, node.e);
+			if(node.left != null){
+				s.push(node.left);
+			}
+			if(node.right != null){
+				s.push(node.right);
+			}
+		}
+		
+		return res.toString();
+	}
+	//中序遍历（非递归实现）
+	public String LDRNotRec(){
+		if(isEmpty()){
+			throw new IllegalArgumentException("can not traversing an empty tree.");
+		}
+		Stack<Node> s = new Stack<>();
+		Node node = root;
+		StringBuffer res = new StringBuffer();
+		
+		while(!s.isEmpty() || node!=null){
+			if(node != null){
+				s.push(node);
+				node = node.left;
+			}else{
+				node = s.pop();
+				res.append(node.e);
+				node = node.right;
+			}
+		}
+		
+		return res.toString();
 	}
 }

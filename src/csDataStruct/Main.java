@@ -30,18 +30,21 @@ public class Main {
 //		System.out.println("LinkedListQueue ”√ ±" + time5 + "ms°£");
 		
 		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-		System.out.println(bst.getSize());
+//		System.out.println(bst.getSize());
 		for(int i=1;i<10;i=i+2){
-			bst.loop_add(i);
+			bst.addNotRec(i);
 //			bst.add(i);
 		}
 		for(int i=1;i<10;i++){
-			bst.loop_add(i);
+			bst.addNotRec(i);
 //			bst.add(i);
 		}
 		System.out.println(bst.DLR());
+		System.out.println(bst.DLRNotRec());
 		System.out.println(bst.LDR());
+		System.out.println(bst.LDRNotRec());
 		System.out.println(bst.LRD());
+		System.out.println(bst.LRDNotRec());
 		
 	}
 
