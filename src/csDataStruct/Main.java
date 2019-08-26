@@ -45,6 +45,12 @@ public class Main {
 		System.out.println(bst.LDRNotRec());
 		System.out.println(bst.LRD());
 		System.out.println(bst.LRDNotRec());
+		System.out.println(bst.levelOrder());
+		while(!bst.isEmpty()){
+			System.out.println(bst.removeMin());
+		}
+		System.out.println(bst.getMax());
+		System.out.println(bst.getMin());
 		
 	}
 

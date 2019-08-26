@@ -97,6 +97,20 @@ public class LinkedList<E> {
 	}
 	
 	//删除元素
+	public void removeElement(E e){
+		Node node = dummyhead;
+		while(node.next != null){
+			if(node.next.e.equals(e)){
+				Node newNode = node.next.next;
+				node.next.next = null;
+				node.next = newNode;
+				break;
+			}
+			node = node.next;
+		}
+	}
+	
+	//删除索引位置元素
 	public E remove(int index){
 		if(index < 0 || index >= size){
 			throw new IllegalArgumentException("illegal index.");
