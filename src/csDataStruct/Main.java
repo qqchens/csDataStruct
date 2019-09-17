@@ -1,7 +1,11 @@
 package csDataStruct;
 
+import java.util.ArrayList;
 import java.util.Random;
-import interfacePackage.*;
+
+import interfacePackage.Map;
+import interfacePackage.Queue;
+import interfacePackage.Stack;
 
 public class Main {
 
@@ -80,5 +84,31 @@ public class Main {
 		long endTime = System.currentTimeMillis();
 		long consum = endTime - startTime;
 		return consum;
+	}
+	
+	public static double testMap(Map<String, Integer> map, String filename){
+		long startTime = System.nanoTime();
+		System.out.println("filename:" + filename);
+		ArrayList<String> words = new ArrayList<>();
+		if(FileOperation.readfile(filename, words)){
+			System.out.println("Total words:" + words.size());
+			
+			for(String word : words){
+				if(map.contains(word)){
+					map.set(word, map.get(word)+1);
+				}else{
+					map.add(word, 1);
+				}
+			}
+			
+			System.out.println("Total different words:" + map.getSize());
+			System.out.println("Frequency of PRIDE:" + map.get("pride"));
+			System.out.println("Frequency of And:" + map.get("and"));
+			System.out.println("Frequency of PREJUDICE:" + map.get("prejudice"));
+		}
+		
+		long endTime = System.nanoTime();
+		
+		return (endTime - startTime) / 1000000000.0;
 	}
 }

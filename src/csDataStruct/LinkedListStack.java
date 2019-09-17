@@ -12,10 +12,6 @@ public class LinkedListStack<E> implements Stack<E> {
 			this.next = node;
 		}
 
-		public Node(E e){
-			this(e, null);
-		}
-
 		public Node(){
 			this(null, null);
 		}

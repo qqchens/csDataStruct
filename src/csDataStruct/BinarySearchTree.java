@@ -358,6 +358,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	//É¾³ýº¯Êý-µÝ¹é
 	public Node remove(Node node,E e){
 		if(node == null){
+			size++;
 			return node;
 		}
 		
