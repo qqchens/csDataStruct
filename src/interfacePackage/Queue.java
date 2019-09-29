@@ -2,9 +2,9 @@ package interfacePackage;
 
 public interface Queue<E> {
 
-	public int getSize();
-	public boolean isEmpty();
-	public void enqueue(E e);
-	public E dequeue();
-	public E getFront();
+	int getSize();
+	boolean isEmpty();
+	void enqueue(E e);
+	E dequeue();
+	E getFront();
 }

@@ -32,6 +32,16 @@ public class Array<E> {
 		return size == 0;
 	}
 	
+	public void swap(int i, int j){
+		if(i < 0 || i > size-1 || i < 0 || i > size-1){
+			throw new IllegalArgumentException("illegal index.");
+		}
+		
+		E tmp = data[i];
+		data[i] = data[j];
+		data[j] = tmp;
+	}
+	
 	//索引位置添加一个元素
 	public void add(int index, E e){
 		
@@ -128,7 +138,7 @@ public class Array<E> {
 			throw new IllegalArgumentException("Get failed. index is illegal.");
 		}
 		E e = data[index];
-		for(int i=index;i<size;i++){
+		for(int i=index;i<size-1;i++){
 			data[i] = data[i+1];
 		}
 		size --;

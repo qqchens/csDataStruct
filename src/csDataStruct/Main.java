@@ -43,13 +43,6 @@ public class Main {
 			bst.addNotRec(i);
 //			bst.add(i);
 		}
-		System.out.println(bst.DLR());
-		System.out.println(bst.DLRNotRec());
-		System.out.println(bst.LDR());
-		System.out.println(bst.LDRNotRec());
-		System.out.println(bst.LRD());
-		System.out.println(bst.LRDNotRec());
-		System.out.println(bst.levelOrder());
 		while(!bst.isEmpty()){
 			System.out.println(bst.removeMin());
 		}
