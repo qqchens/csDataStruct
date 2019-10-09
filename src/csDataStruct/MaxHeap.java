@@ -46,6 +46,11 @@ public class MaxHeap<E extends Comparable<E>> {
 		}
 	}
 	
+	public E peak(){
+		E e = data.getFirst();
+		return e;
+	}
+	
 	public E getMax(){
 		E e = data.getFirst();
 		data.swap(0, data.getSize()-1);
@@ -82,6 +87,7 @@ public class MaxHeap<E extends Comparable<E>> {
 		int[] arr = new int[num];
 		for(int i=0; i<num; i++){
 			arr[i] = m.getMax();
+			System.out.println(arr[i]);
 		}
 
 		for(int i=0; i<num-1; i++){

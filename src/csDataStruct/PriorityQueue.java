@@ -3,39 +3,49 @@ package csDataStruct;
 import interfacePackage.Queue;
 
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
+	
+	private MaxHeap<E> maxHeap;
+	
+	public PriorityQueue(){
+		this.maxHeap = new MaxHeap<>();
+	}
 
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return maxHeap.getSize();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return maxHeap.isEmpty();
 	}
 
 	@Override
 	public void enqueue(E e) {
-		// TODO Auto-generated method stub
-		
+		maxHeap.add(e);
 	}
 
 	@Override
 	public E dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+		return maxHeap.getMax();
 	}
 
 	@Override
 	public E getFront() {
-		// TODO Auto-generated method stub
-		return null;
+		return maxHeap.peak();
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int[] a = new int[]{1,3,5,7,9,1122,2,4,112,31,123,1223};
+		
+		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		for(int i=0;i<a.length;i++){
+			pq.enqueue(a[i]);
+		}
+		
+		while(!pq.isEmpty()){
+			System.out.println(pq.dequeue());
+		}
 
 	}
 }
